@@ -10,3 +10,4 @@ At the present time it only supports an Average Hash. Usage:
 ## TODO:
 - Add hamming distance calculator and helper method to directly compare images.
 - Add more hash algorithms.
+- Create package for pypi
