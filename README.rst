@@ -30,7 +30,7 @@ Basic usage
 	36
 
 
-Demo function find_similar_images illustrates finding similar images in a directory.
+Demo script find_similar_images illustrates how to find similar images in a directory.
 
 References::
 

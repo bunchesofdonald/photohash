@@ -6,7 +6,7 @@ setup(
     author='Johannes Buchner',
     author_email='buchner.johannes@gmx.at',
     packages=['imagehash'],
-    scripts=['imagehash.py'],
+    scripts=['find_similar_images.py'],
     url='http://pypi.python.org/pypi/imagehash/',
     license='LICENSE',
     description='Image Hashing library',
