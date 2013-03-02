@@ -1,16 +1,16 @@
 ImageHash
 ===========
 
-A image hashing library written in Python.
-Supports:
+A image hashing library written in Python. ImageHash supports:
 
-* average hashing (aHash)
-* perception hashing (pHash)
-* difference hashing (dHash)
+* average hashing (`aHash`_)
+* perception hashing (`pHash`_)
+* difference hashing (`dHash`_)
 
 Requirements
 -------------
 Based on PIL Image, numpy and scipy.fftpack (for pHash)
+Easy installation through `pypi`_.
 
 Basic usage
 ------------
@@ -29,12 +29,12 @@ Basic usage
 	>>> print hash - otherhash
 	36
 
-
 Demo script find_similar_images illustrates how to find similar images in a directory.
 
-References::
+Source hosted at github: https://github.com/JohannesBuchner/imagehash
 
-  * pHash implementation following http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
-  * dHash implementation following http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
+.. _pHash: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
+.. _dHash: http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html
+.. _pypi: https://pypi.python.org/pypi/ImageHash
 
 
