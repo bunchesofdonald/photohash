@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='ImageHash',
-    version='0.1',
+    version='0.2',
     author='Johannes Buchner',
     author_email='buchner.johannes@gmx.at',
     packages=['imagehash'],
