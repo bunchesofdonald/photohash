@@ -1,2 +1,2 @@
-include *.txt *.rst
-recursive-include docs *.txt
+include *.txt *.rst LICENSE 
+recursive-include docs *.txt examples *.py
