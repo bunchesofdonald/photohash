@@ -17,11 +17,11 @@ Basic usage
 ::
 
 	>>> import Image
-	>>> import ImageHash
-	>>> hash = ImageHash.average_hash(Image.open('test.png'))
+	>>> import imagehash
+	>>> hash = imagehash.average_hash(Image.open('test.png'))
 	>>> print hash
 	d879f8f89b1bbf
-	>>> otherhash = ImageHash.average_hash(Image.open('other.bmp'))
+	>>> otherhash = imagehash.average_hash(Image.open('other.bmp'))
 	>>> print otherhash
 	ffff3720200ffff
 	>>> print hash == otherhash
