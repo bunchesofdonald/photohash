@@ -18,9 +18,9 @@ hash algorithm, used to find if two images are similar.
     import imagehash
     similar = imagehash.is_look_alike('/path/to/myimage.jpg', '/path/to/myotherimage.jpg')
 
-You can also set how string `is_look_alike` should be when comparing images by
-passing in `tolerance`. If the tolerance is 0 `is_look_alike` will only return
-True if the images are identical. The default tolerance is 6.
+You can also set how string strict `is_look_alike` should be when comparing
+images by passing in `tolerance`. If the tolerance is 0 `is_look_alike` will
+only return True if the images are identical. The default tolerance is 6.
 
     import imagehash
     similar = imagehash.is_look_alike('/path/to/myimage.jpg', '/path/to/myimage.jpg', tolerance=3)
