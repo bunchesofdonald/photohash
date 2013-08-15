@@ -1,5 +1,9 @@
-import Image
+from PIL import Image
 from bitarray import bitarray
+
+
+def _hamming_distance(string, other_string):
+    return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(string, other_string)))
 
 
 class ImageHash(object):
@@ -20,3 +24,14 @@ class ImageHash(object):
 
         ba = bitarray("".join(diff), endian='little')
         return ba.tobytes().encode('hex')
+
+
+def distance(image_path, other_image_path):
+    image_hash = ImageHash(image_path).average_hash()
+    other_image_hash = ImageHash(other_image_path).average_hash()
+
+    return _hamming_distance(image_hash, other_image_hash)
+
+
+def is_look_alike(image_path, other_image_path, tolerance=6):
+    return distance(image_path, other_image_path) < tolerance
