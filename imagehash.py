@@ -1,6 +1,7 @@
 import Image
 from bitarray import bitarray
 
+
 class ImageHash(object):
     def __init__(self, path, size=8):
         self.image_path = path
@@ -8,7 +9,7 @@ class ImageHash(object):
         self.image = Image.open(path)
 
     def average_hash(self):
-        image = self.image.resize((self.hash_size, self.hash_size), Image.ANTIALIAS).convert("L")
+        image = self.image.resize((self.hash_size, self.hash_size), Image.ANTIALIAS).convert("1")
         pixels = list(image.getdata())
         avg = sum(pixels) / len(pixels)
 
