@@ -6,29 +6,27 @@ def _hamming_distance(string, other_string):
     return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(string, other_string)))
 
 
-class ImageHash(object):
-    def __init__(self, path, size=8):
-        self.image_path = path
-        self.hash_size = size
-        self.image = Image.open(path)
+def average_hash(image_path, hash_size=8):
+    """ Computes the average hash of the given image. """
 
-    def average_hash(self):
-        image = self.image.resize((self.hash_size, self.hash_size), Image.ANTIALIAS).convert("1")
-        pixels = list(image.getdata())
-        avg = sum(pixels) / len(pixels)
+    # Open the image, resize it and convert it to black & white.
+    image = Image.open(image_path)
+    image = image.resize((hash_size, hash_size), Image.ANTIALIAS).convert("1")
 
-        diff = []
-        for pixel in pixels:
-            value = 1 if pixel > avg else 0
-            diff.append(str(value))
+    # Get the average value of a pixel in the image.
+    pixels = list(image.getdata())
+    avg = sum(pixels) / len(pixels)
 
-        ba = bitarray("".join(diff), endian='little')
-        return ba.tobytes().encode('hex')
+    # Compute the hash based on each pixels value compared to the average.
+    diff = map(lambda pixel: '1' if pixel > avg else '0', pixels)
+    bits = bitarray("".join(diff), endian='little')
+
+    return bits.tobytes().encode('hex')
 
 
 def distance(image_path, other_image_path):
-    image_hash = ImageHash(image_path).average_hash()
-    other_image_hash = ImageHash(other_image_path).average_hash()
+    image_hash = average_hash(image_path)
+    other_image_hash = average_hash(other_image_path)
 
     return _hamming_distance(image_hash, other_image_hash)
 
