@@ -3,6 +3,7 @@ from bitarray import bitarray
 
 
 def _hamming_distance(string, other_string):
+    """ Computes the hamming distance between two strings. """
     return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(string, other_string)))
 
 
@@ -25,6 +26,7 @@ def average_hash(image_path, hash_size=8):
 
 
 def distance(image_path, other_image_path):
+    """ Computes the hamming distance between two images. """
     image_hash = average_hash(image_path)
     other_image_hash = average_hash(other_image_path)
 
@@ -32,4 +34,9 @@ def distance(image_path, other_image_path):
 
 
 def is_look_alike(image_path, other_image_path, tolerance=6):
+    """
+    Returns True if the hamming distance between
+    the image hashes are less than the given tolerance.
+    """
+
     return distance(image_path, other_image_path) < tolerance
