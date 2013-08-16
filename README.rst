@@ -5,6 +5,14 @@ PhotoHash
 This was mainly created just for my own use and education. It's a perceptual
 hash algorithm, used to find if two images are similar.
 
+Installation
+============
+
+::
+
+    pip install PhotoHash
+
+
 average_hash
 ============
 Returns the hash of the image using an average hash algorithm. This algorithm
