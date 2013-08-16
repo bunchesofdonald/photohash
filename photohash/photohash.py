@@ -39,4 +39,4 @@ def is_look_alike(image_path, other_image_path, tolerance=6):
     the image hashes are less than the given tolerance.
     """
 
-    return distance(image_path, other_image_path) < tolerance
+    return distance(image_path, other_image_path) <= tolerance
