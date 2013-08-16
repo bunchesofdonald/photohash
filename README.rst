@@ -13,8 +13,11 @@ Installation
     pip install PhotoHash
 
 
+Usage
+=====
+
 average_hash
-============
+------------
 Returns the hash of the image using an average hash algorithm. This algorithm
 compares each pixel in the image to the average value of all the pixels.::
 
@@ -22,14 +25,14 @@ compares each pixel in the image to the average value of all the pixels.::
     hash = photohash.average_hash('/path/to/myimage.jpg')
 
 distance
-========
+--------
 Returns the hamming distance between the average_hash of the given images.::
 
     import photohash
     distance = photohash.distance('/path/to/myimage.jpg', '/path/to/myotherimage.jpg')
 
 is_look_alike
-=============
+-------------
 Returns a boolean of whether or not the photos look similar.::
 
     import photohash
