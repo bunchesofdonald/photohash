@@ -38,7 +38,7 @@ Returns a boolean of whether or not the photos look similar.::
     import photohash
     similar = photohash.is_look_alike('/path/to/myimage.jpg', '/path/to/myotherimage.jpg')
 
-is_look_alike also takes an option tolerance argument that to define how strict
+is_look_alike also takes an optional tolerance argument that defines how strict
 the comparison should be.::
 
     import photohash
