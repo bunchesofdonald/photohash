@@ -26,6 +26,11 @@ class PhotoHashTestCase(unittest.TestCase):
                 'path': join(ASSETS_ROOT, 'snow.jpg'),
                 'average_hash': 'a6a85fb62f054af1',
             },
+            {
+                'path': join(ASSETS_ROOT, 'santa_monica_small.jpg'),
+                'average_hash': '55edbb55eab64855',
+            },
+
         ]
 
     def test_average_hash(self):
@@ -39,7 +44,7 @@ class PhotoHashTestCase(unittest.TestCase):
 
     def test_distance(self):
         for i in range(len(self.photos)):
-            for j in range(i + 1, len(self.photos)):
+            for j in range(i, len(self.photos)):
                 hamming_distance = _hamming_distance(
                     self.photos[i]['average_hash'],
                     self.photos[j]['average_hash']
@@ -62,6 +67,12 @@ class PhotoHashTestCase(unittest.TestCase):
 
         # Test that different images return False
         self.assertFalse(is_look_alike(self.photos[0]['path'], self.photos[1]['path']))
+
+        # Test that a scaled verision of the same image is within default tolerance.
+        self.assertTrue(is_look_alike(self.photos[1]['path'], self.photos[3]['path']))
+
+        # but make sure it's not exactly the same.
+        self.assertFalse(is_look_alike(self.photos[1]['path'], self.photos[3]['path'], tolerance=0))
 
 
 if __name__ == '__main__':
