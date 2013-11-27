@@ -1,5 +1,4 @@
 from PIL import Image
-from bitarray import bitarray
 
 
 def _hamming_distance(string, other_string):
@@ -12,17 +11,16 @@ def average_hash(image_path, hash_size=8):
 
     # Open the image, resize it and convert it to black & white.
     image = Image.open(image_path)
-    image = image.resize((hash_size, hash_size), Image.ANTIALIAS).convert("1")
+    image = image.resize((hash_size, hash_size), Image.ANTIALIAS).convert('L')
 
     # Get the average value of a pixel in the image.
     pixels = list(image.getdata())
     avg = sum(pixels) / len(pixels)
 
     # Compute the hash based on each pixels value compared to the average.
-    diff = map(lambda pixel: '1' if pixel > avg else '0', pixels)
-    bits = bitarray("".join(diff), endian='little')
-
-    return bits.tobytes().encode('hex')
+    bits = "".join(map(lambda pixel: '1' if pixel > avg else '0', pixels))
+    return int(bits, 2).__format__('016x')
+    # bits = bitarray("".join(diff), endian='little')
 
 
 def distance(image_path, other_image_path):

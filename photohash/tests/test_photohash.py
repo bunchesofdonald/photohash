@@ -16,19 +16,19 @@ class PhotoHashTestCase(unittest.TestCase):
         self.photos = [
             {
                 'path': join(ASSETS_ROOT, 'minneapolis.jpg'),
-                'average_hash': 'ffffbbeff5055208',
+                'average_hash': 'ffffffffc7000000',
             },
             {
                 'path': join(ASSETS_ROOT, 'santa_monica.jpg'),
-                'average_hash': '55edbb55ea5a522a',
+                'average_hash': '01ffffff1f3f0008',
             },
             {
                 'path': join(ASSETS_ROOT, 'snow.jpg'),
-                'average_hash': 'a6a85fb62f054af1',
+                'average_hash': '67047df9fcf0408f',
             },
             {
                 'path': join(ASSETS_ROOT, 'santa_monica_small.jpg'),
-                'average_hash': '55edbb55eab64855',
+                'average_hash': '01ffffff1f3f0008',
             },
 
         ]
@@ -63,16 +63,15 @@ class PhotoHashTestCase(unittest.TestCase):
         self.assertTrue(is_look_alike(self.photos[2]['path'], self.photos[2]['path'], tolerance=0))
 
         # And if we use the least strict tolerance.
-        self.assertTrue(is_look_alike(self.photos[2]['path'], self.photos[2]['path'], tolerance=16))
+        self.assertTrue(
+            is_look_alike(self.photos[2]['path'], self.photos[2]['path'], tolerance=16)
+        )
 
         # Test that different images return False
         self.assertFalse(is_look_alike(self.photos[0]['path'], self.photos[1]['path']))
 
         # Test that a scaled verision of the same image is within default tolerance.
         self.assertTrue(is_look_alike(self.photos[1]['path'], self.photos[3]['path']))
-
-        # but make sure it's not exactly the same.
-        self.assertFalse(is_look_alike(self.photos[1]['path'], self.photos[3]['path'], tolerance=0))
 
 
 if __name__ == '__main__':
