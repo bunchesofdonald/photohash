@@ -12,6 +12,5 @@ setup(
     long_description=open('README.rst').read(),
     install_requires=[
         'Pillow == 2.1.0',
-        'bitarray == 0.8.1',
     ],
 )

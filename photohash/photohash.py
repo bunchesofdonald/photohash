@@ -20,7 +20,6 @@ def average_hash(image_path, hash_size=8):
     # Compute the hash based on each pixels value compared to the average.
     bits = "".join(map(lambda pixel: '1' if pixel > avg else '0', pixels))
     return int(bits, 2).__format__('016x')
-    # bits = bitarray("".join(diff), endian='little')
 
 
 def distance(image_path, other_image_path):

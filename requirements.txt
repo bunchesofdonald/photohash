@@ -1,2 +1,1 @@
 Pillow==2.1.0
-bitarray==0.8.1
