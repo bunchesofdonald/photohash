@@ -1,1 +1,3 @@
+v0.2.0, 2013-11-27 -- Changes average hash algorithm to convert image to
+    grayscale for more accurate hashing. Drops bitarray dependency.
 v0.1.0, 2013-08-15 -- Initial release.
