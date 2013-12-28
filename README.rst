@@ -16,17 +16,17 @@ Basic usage
 ------------
 ::
 
-	>>> import Image
+	>>> from PIL import Image
 	>>> import imagehash
 	>>> hash = imagehash.average_hash(Image.open('test.png'))
-	>>> print hash
+	>>> print(hash)
 	d879f8f89b1bbf
 	>>> otherhash = imagehash.average_hash(Image.open('other.bmp'))
-	>>> print otherhash
+	>>> print(otherhash)
 	ffff3720200ffff
-	>>> print hash == otherhash
+	>>> print(hash == otherhash)
 	False
-	>>> print hash - otherhash
+	>>> print(hash - otherhash)
 	36
 
 Demo script find_similar_images illustrates how to find similar images in a directory.

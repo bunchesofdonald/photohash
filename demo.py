@@ -1,16 +1,15 @@
-#!/usr/bin/env python
-from PIL import Image
-from imagehash import *
+import os
+import sys
+import imagehash
 
 """
 Demo of hashing
 """
 def find_similar_images(userpath, hashfunc = imagehash.average_hash):
-    import os
     def is_image(filename):
     	f = filename.lower()
     	return f.endswith(".png") or f.endswith(".jpg") or \
-    		f.endswith(".jpeg") or f.endswith(".bmp") or f.endswith(".gif")
+                f.endswith(".jpeg") or f.endswith(".bmp") or f.endswith(".gif")
     
     image_filenames = [os.path.join(userpath, path) for path in os.listdir(userpath) if is_image(path)]
     images = {}
@@ -24,9 +23,8 @@ def find_similar_images(userpath, hashfunc = imagehash.average_hash):
 
 
 if __name__ == '__main__':
-    import sys, os
     def usage():
-    	sys.stderr.write("""SYNOPSIS: %s [ahash|phash|dhash] [<directory>]
+    	sys.stderr.write("""SYNOPSIS: %s [avg|phash] [<directory>]
 
 Identifies similar images in the directory.
 
