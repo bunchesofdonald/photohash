@@ -1,9 +1,10 @@
+import os
+import sys
 
 """
 Demo of hashing
 """
 def find_similar_images(userpath, hashfunc = average_hash):
-	import os
 	def is_image(filename):
 		f = filename.lower()
 		return f.endswith(".png") or f.endswith(".jpg") or \

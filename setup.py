@@ -14,7 +14,7 @@ setup(
     install_requires=[
         "scipy",
         "numpy",
-        "PIL",
+        "pillow",
     ],
 )
 

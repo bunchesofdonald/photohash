@@ -30,7 +30,7 @@ Rotation by 26: 21 Hamming difference
 
 """
 
-import Image
+from PIL import Image
 import numpy
 import scipy.fftpack
 
