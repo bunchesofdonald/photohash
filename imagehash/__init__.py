@@ -7,18 +7,18 @@ Example:
 >>> import Image
 >>> import imagehash
 >>> hash = imagehash.average_hash(Image.open('test.png'))
->>> print hash
+>>> print(hash)
 d879f8f89b1bbf
 >>> otherhash = imagehash.average_hash(Image.open('other.bmp'))
->>> print otherhash
+>>> print(otherhash)
 ffff3720200ffff
->>> print hash == otherhash
+>>> print(hash == otherhash)
 False
->>> print hash - otherhash
+>>> print(hash - otherhash)
 36
 >>> for r in range(1, 30, 5):
 ...     rothash = imagehash.average_hash(Image.open('test.png').rotate(r))
-...     print 'Rotation by %d: %d Hamming difference' % (r, hash - rothash)
+...     print('Rotation by %d: %d Hamming difference' % (r, hash - rothash))
 ... 
 Rotation by 1: 2 Hamming difference
 Rotation by 6: 11 Hamming difference
@@ -76,7 +76,7 @@ class ImageHash(object):
 def hex_to_hash(hexstr):
 	l = []
 	if len(hexstr) != 16:
-		print hexstr
+		print(hexstr)
 	for i in range(len(hexstr) / 2):
 		#for h in hexstr[::2]:
 		h = hexstr[i*2:i*2+2]
