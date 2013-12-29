@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from PIL import Image
-from imagehash import *
+import imagehash
 
 """
 Demo of hashing
