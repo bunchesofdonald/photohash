@@ -30,6 +30,11 @@ if __name__ == '__main__':
 
 Identifies similar images in the directory.
 
+Method: 
+  ahash: Average hash
+  phash: Perceptual hash
+  dhash: Difference hash
+
 (C) Johannes Buchner, 2013
 """ % sys.argv[0])
     	sys.exit(1)

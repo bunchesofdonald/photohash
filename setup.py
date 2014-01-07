@@ -1,8 +1,15 @@
-from distutils.core import setup
+try:
+    from setuptools import setup
+except ImportError:
+    from distutils.core import setup
+
+long_description = ""
+with open('README.rst') as f:
+    long_description = f.read()
 
 setup(
     name='ImageHash',
-    version='0.2',
+    version='0.3',
     author='Johannes Buchner',
     author_email='buchner.johannes@gmx.at',
     packages=['imagehash'],
@@ -10,11 +17,11 @@ setup(
     url='http://pypi.python.org/pypi/imagehash/',
     license='LICENSE',
     description='Image Hashing library',
-    long_description=open('README.rst').read(),
+    long_description=long_description,
     install_requires=[
         "scipy",
         "numpy",
-        "pillow",
+        "pillow", # or PIL
     ],
 )
 
