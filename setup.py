@@ -14,7 +14,7 @@ setup(
     author_email='buchner.johannes@gmx.at',
     packages=['imagehash'],
     scripts=['find_similar_images.py'],
-    url='http://pypi.python.org/pypi/imagehash/',
+    url='https://github.com/JohannesBuchner/imagehash',
     license='LICENSE',
     description='Image Hashing library',
     long_description=long_description,
