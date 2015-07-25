@@ -10,17 +10,15 @@ def average_hash(image_path, hash_size=8):
     """ Computes the average hash of the given image. """
     with open(image_path, 'rb') as f:
         # Open the image, resize it and convert it to black & white.
-        image = Image.open(f)
-        image = image.resize((hash_size, hash_size), Image.ANTIALIAS).convert('L')
-
-        # Get the average value of a pixel in the image.
+        image = Image.open(f).resize((hash_size, hash_size), Image.ANTIALIAS).convert('L')
         pixels = list(image.getdata())
-        avg = sum(pixels) / len(pixels)
 
-        # Compute the hash based on each pixels value compared to the average.
-        bits = "".join(map(lambda pixel: '1' if pixel > avg else '0', pixels))
-        hashformat = "0{hashlength}x".format(hashlength=hash_size * 2)
-        return int(bits, 2).__format__(hashformat)
+    avg = sum(pixels) / len(pixels)
+
+    # Compute the hash based on each pixels value compared to the average.
+    bits = "".join(map(lambda pixel: '1' if pixel > avg else '0', pixels))
+    hashformat = "0{hashlength}x".format(hashlength=hash_size * 2)
+    return int(bits, 2).__format__(hashformat)
 
 
 def distance(image_path, other_image_path):
