@@ -2,7 +2,8 @@
 PhotoHash
 =========
 
-![travis-ci](https://travis-ci.org/bunchesofdonald/photohash.svg?branch=master)
+.. image:: https://travis-ci.org/bunchesofdonald/django-hermes.svg?branch=master
+    :target: https://travis-ci.org/bunchesofdonald/photohash
 
 This was mainly created just for my own use and education. It's a perceptual
 hash algorithm, used to find if two images are similar.
