@@ -41,6 +41,10 @@ class PhotoHashTestCase(unittest.TestCase):
         self.assertEqual(_hamming_distance('are', 'are'), 0)
         self.assertEqual(_hamming_distance('read', 'daer'), 4)
 
+    def test_hamming_distance_same_length_required(self):
+        """_hamming_distance should throw a ValueError if the two strings are not the same length"""
+        self.assertRaises(ValueError, _hamming_distance, 'short', 'very long')
+
     def test_distance(self):
         """distance should know the distance between the average_hash of two test images"""
         for i in range(len(self.photos)):
