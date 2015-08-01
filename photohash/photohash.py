@@ -3,6 +3,9 @@ from PIL import Image
 
 def _hamming_distance(string, other_string):
     """ Computes the hamming distance between two strings. """
+    if len(string) != len(other_string):
+        raise ValueError('Hamming distance requires two strings of equal length')
+
     return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(string, other_string)))
 
 
@@ -17,7 +20,7 @@ def average_hash(image_path, hash_size=8):
 
     # Compute the hash based on each pixels value compared to the average.
     bits = "".join(map(lambda pixel: '1' if pixel > avg else '0', pixels))
-    hashformat = "0{hashlength}x".format(hashlength=hash_size * 2)
+    hashformat = "0{hashlength}x".format(hashlength=hash_size ** 2 / 4)
     return int(bits, 2).__format__(hashformat)
 
 
