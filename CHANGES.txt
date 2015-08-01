@@ -1,3 +1,4 @@
+v0.3.2, 2015-08-01 -- Fixes a loss of precision when using hash_size other than 8.
 v0.3.1, 2015-07-25 -- Fixes a memory leak in average hash algorithm.
 v0.2.1, 2013-11-27 -- Fixes license in setup.py.
 v0.2.0, 2013-11-27 -- Changes average hash algorithm to convert image to

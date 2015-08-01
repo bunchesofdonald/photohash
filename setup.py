@@ -19,7 +19,7 @@ setup(
     name='Photohash',
     packages=find_packages(),
     url='https://github.com/bunchesofdonald/photohash',
-    version='0.3.1',
+    version='0.3.2',
     install_requires=[
         'Pillow>=2.1.0',
     ],
