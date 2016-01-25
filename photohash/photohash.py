@@ -3,16 +3,24 @@ from __future__ import division
 from PIL import Image
 
 
-def _hamming_distance(string, other_string):
-    """ Computes the hamming distance between two strings. """
-    if len(string) != len(other_string):
+def hash_distance(left_hash, right_hash):
+    """Compute the hamming distance between two hashes"""
+    if len(left_hash) != len(right_hash):
         raise ValueError('Hamming distance requires two strings of equal length')
 
-    return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(string, other_string)))
+    return sum(map(lambda x: 0 if x[0] == x[1] else 1, zip(left_hash, right_hash)))
+
+
+def hashes_are_similar(left_hash, right_hash, tolerance=6):
+    """
+    Return True if the hamming distance between
+    the image hashes are less than the given tolerance.
+    """
+    return hash_distance(left_hash, right_hash) <= tolerance
 
 
 def average_hash(image_path, hash_size=8):
-    """ Computes the average hash of the given image. """
+    """ Compute the average hash of the given image. """
     with open(image_path, 'rb') as f:
         # Open the image, resize it and convert it to black & white.
         image = Image.open(f).resize((hash_size, hash_size), Image.ANTIALIAS).convert('L')
@@ -27,17 +35,15 @@ def average_hash(image_path, hash_size=8):
 
 
 def distance(image_path, other_image_path):
-    """ Computes the hamming distance between two images. """
+    """ Compute the hamming distance between two images"""
     image_hash = average_hash(image_path)
     other_image_hash = average_hash(other_image_path)
 
-    return _hamming_distance(image_hash, other_image_hash)
+    return hash_distance(image_hash, other_image_hash)
 
 
 def is_look_alike(image_path, other_image_path, tolerance=6):
-    """
-    Returns True if the hamming distance between
-    the image hashes are less than the given tolerance.
-    """
+    image_hash = average_hash(image_path)
+    other_image_hash = average_hash(other_image_path)
 
-    return distance(image_path, other_image_path) <= tolerance
+    return hashes_are_similar(image_hash, other_image_hash, tolerance)

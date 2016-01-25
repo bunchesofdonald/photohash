@@ -47,7 +47,23 @@ the comparison should be.::
     import photohash
     similar = photohash.is_look_alike('/path/to/myimage.jpg', '/path/to/myimage.jpg', tolerance=3)
 
+hash_distance
+-------------
+Returns the hamming distance between two hashes of the same length::
 
-TODO
-====
-* Add more hash algorithms.
+    import photohash
+    hash_one = average_hash('/path/to/myimage.jpg')
+    hash_two = average_hash('/path/to/myotherimage.jpg')
+    distance = photohash.hash_distance(hash_one, hash_two)
+
+hashes_are_similar
+------------------
+Returns a boolean of whether or not the two hashes are within the given tolerance. Same as
+is_look_alike, but takes hashes instead of image paths::
+
+    import photohash
+    hash_one = average_hash('/path/to/myimage.jpg')
+    hash_two = average_hash('/path/to/myotherimage.jpg')
+    similar = photohash.hash_are_similar(hash_one, hash_two)
+
+hashes_are_similar also takes the same optional tolerance argument that is_look_alike does.
