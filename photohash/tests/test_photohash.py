@@ -1,11 +1,11 @@
 from os.path import abspath, dirname, join
 import unittest
 
+from photohash.photohash import average_hash, distance, is_look_alike, hash_distance
+
 TESTS_ROOT = join(dirname(abspath(__file__)))
 ASSETS_ROOT = join(TESTS_ROOT, 'assets')
 MODULE_ROOT = join(TESTS_ROOT, '../')
-
-from photohash.photohash import average_hash, distance, is_look_alike, _hamming_distance
 
 
 class PhotoHashTestCase(unittest.TestCase):
@@ -35,21 +35,21 @@ class PhotoHashTestCase(unittest.TestCase):
         for photo in self.photos:
             self.assertEqual(photo['average_hash'], average_hash(photo['path']))
 
-    def test_hamming_distance(self):
-        """_hamming_distance should know the distance between two strings"""
-        self.assertEqual(_hamming_distance('roses', 'toned'), 3)
-        self.assertEqual(_hamming_distance('are', 'are'), 0)
-        self.assertEqual(_hamming_distance('read', 'daer'), 4)
+    def test_hash_distance(self):
+        """hash_distance should know the hamming distance between two strings"""
+        self.assertEqual(hash_distance('roses', 'toned'), 3)
+        self.assertEqual(hash_distance('are', 'are'), 0)
+        self.assertEqual(hash_distance('read', 'daer'), 4)
 
-    def test_hamming_distance_same_length_required(self):
-        """_hamming_distance should throw a ValueError if the two strings are not the same length"""
-        self.assertRaises(ValueError, _hamming_distance, 'short', 'very long')
+    def testhash_distance_same_length_required(self):
+        """hash_distance should throw a ValueError if the two strings are not the same length"""
+        self.assertRaises(ValueError, hash_distance, 'short', 'very long')
 
     def test_distance(self):
         """distance should know the distance between the average_hash of two test images"""
         for i in range(len(self.photos)):
             for j in range(i, len(self.photos)):
-                hamming_distance = _hamming_distance(
+                hamming_distance = hash_distance(
                     self.photos[i]['average_hash'],
                     self.photos[j]['average_hash']
                 )
