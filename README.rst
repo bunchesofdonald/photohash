@@ -64,6 +64,6 @@ is_look_alike, but takes hashes instead of image paths::
     import photohash
     hash_one = average_hash('/path/to/myimage.jpg')
     hash_two = average_hash('/path/to/myotherimage.jpg')
-    similar = photohash.hash_are_similar(hash_one, hash_two)
+    similar = photohash.hashes_are_similar(hash_one, hash_two)
 
 hashes_are_similar also takes the same optional tolerance argument that is_look_alike does.
