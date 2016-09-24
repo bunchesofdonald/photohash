@@ -1,3 +1,3 @@
-from .photohash import average_hash, hash_distance, is_look_alike, hashes_are_similar
+from .photohash import *
 
-__version__ = '0.4.0'
+__version__ = '0.4.1'
