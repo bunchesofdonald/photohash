@@ -7,7 +7,7 @@ steps:
   image: python:2
   commands:
   - pip install -r requirements.txt
-  - pytest
+  - py.test
 ---
 kind: pipeline
 name: python-3
@@ -17,4 +17,4 @@ steps:
   image: python:3
   commands:
   - pip install -r requirements.txt
-  - pytest
+  - py.test
