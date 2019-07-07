@@ -1,0 +1,5 @@
+image: abstruse_builder
+install:
+  - pip install -r requirements.txt
+script:
+  - py.test
